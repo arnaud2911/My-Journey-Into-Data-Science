@@ -12,6 +12,9 @@ This project simulates traffic flow in a city grid and performs various analyses
 - **Visualize** traffic density using heatmaps.
 - **Process** real traffic data from external sources.
 
+## Acknowledgment: 
+Some parts of this project, such as initial code drafts and optimization suggestions, were assisted by AI tools like ChatGPT and GitHub Copilot. However, I have ensured a deep understanding of the core functionality and refined the code to suit my learning objectives.
+
 ## How to Run
 
 1. **Navigate** to the project directory:
