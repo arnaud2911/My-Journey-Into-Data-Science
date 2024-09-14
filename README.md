@@ -8,6 +8,10 @@ Welcome to my collection of projects documenting my journey to becoming a Data S
    - **Description**: This project simulates traffic flow in a city grid and performs various analyses, such as calculating the total number of vehicles, identifying intersections with the highest traffic, and visualizing traffic density.
    - **Key Concepts**: 2D lists, nested loops, data analysis, function decomposition, data visualization, real data integration.
 
+2. [Customer Review Processing](./02_Customer_Review_Processing)
+   - **Description**: This project processes customer reviews by flattening newline characters and escaping quotation marks, then concatenates them into a single string. The results are written to a text file for further analysis.
+   - **Key Concepts**: String manipulation, file handling, list processing, text data cleaning.
+
 <!-- Add future projects here -->
 
 ## About Me
