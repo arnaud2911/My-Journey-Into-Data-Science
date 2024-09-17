@@ -12,6 +12,10 @@ Welcome to my collection of projects documenting my journey to becoming a Data S
    - **Description**: This project processes customer reviews by flattening newline characters and escaping quotation marks, then concatenates them into a single string. The results are written to a text file for further analysis.
    - **Key Concepts**: String manipulation, file handling, list processing, text data cleaning.
 
+3. [NYC Schools Analysis](./03_NYC_Schools_Analysis)
+   - **Description**: This capstone project analyzes NYC schools' SAT performance to identify the best-performing schools and boroughs. It includes data cleaning, analysis, and visualization steps to provide insights into the educational landscape of New York City.
+   - **Key Concepts**: Data cleaning, data analysis, pandas, numpy, data visualization, matplotlib, statistical analysis, code modularization.
+
 <!-- Add future projects here -->
 
 ## About Me
