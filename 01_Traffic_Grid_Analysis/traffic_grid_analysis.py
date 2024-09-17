@@ -18,13 +18,15 @@ import random
 import csv
 import matplotlib.pyplot as plt
 
-def initialize_traffic_grid(rows=5, cols=5, min_vehicles=0, max_vehicles=20):
+def initialize_traffic_grid(rows=10, cols=10, min_vehicles=0, max_vehicles=20):
     """
     Initializes a 2D traffic grid with random vehicle counts.
     """
     grid = []
-    for _ in range(rows):
-        row = [random.randint(min_vehicles, max_vehicles) for _ in range(cols)]
+    for i in range(rows):
+        row = []
+        for j in range(cols):
+            row.append(random.randint(min_vehicles, max_vehicles))
         grid.append(row)
     return grid
 
