@@ -8,7 +8,7 @@ This capstone project analyzes NYC schools' SAT performance to identify the best
 
 - Identify schools with the best math results (at least 80% of the maximum possible score).
 - Determine the top 10 performing schools based on combined SAT scores.
-- Find the borough with the largest standard deviation in combined SAT scores.
+- Find the borough with the largest standard deviation in combined SAT scores: highlight the number of schools, and the mean and standard deviation of it's combined SAT score.
 - Perform data cleaning and visualization to enhance the analysis.
 
 ## Key Features
