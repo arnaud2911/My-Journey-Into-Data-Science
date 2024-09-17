@@ -32,7 +32,7 @@ Some parts of this project, such as initial code drafts and optimization suggest
 1. Clone the repository to your local machine:
 
     ```bash
-    git clone https://github.com/yourusername/My-Journey-To-Data-Science.git
+    git clone https://github.com/yourusername/My-Journey-Into-Data-Science.git
     ```
 
 2. Navigate to the project directory:
