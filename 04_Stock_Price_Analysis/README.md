@@ -57,8 +57,9 @@ Some parts of this project, such as fictional data generation, code writing guid
    pip install numpy pandas matplotlib seaborn
 
 4. **Generate the Dataset**
+
    ```bash
-  python generate_stock_data.py
+   python generate_stock_data.py
 
 5. **Run the Python Script**
 
