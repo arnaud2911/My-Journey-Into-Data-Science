@@ -16,6 +16,10 @@ Welcome to my collection of projects documenting my journey to becoming a Data S
    - **Description**: This capstone project analyzes NYC schools' SAT performance to identify the best-performing schools and boroughs. It includes data cleaning, analysis, and visualization steps to provide insights into the educational landscape of New York City.
    - **Key Concepts**: Data cleaning, data analysis, pandas, numpy, data visualization, matplotlib, statistical analysis, code modularization.
 
+4. [Stock Price Analysis and Simulation](./04_Stock_Price_Analysis)
+   - **Description**: This capstone project analyzes and cleans stock price data of a fictional company, calculates daily returns, performs statistical analysis, and simulates future stock prices using a random walk model. The project demonstrates data cleaning, manipulation, visualization, and statistical concepts in a real-life data science scenario.
+   - **Key Concepts**: Data cleaning, data manipulation, pandas, numpy, data visualization, matplotlib, seaborn, statistical analysis, random simulation, code modularization.
+
 <!-- Add future projects here -->
 
 ## About Me
