@@ -122,7 +122,7 @@ def main():
     # Step 7: Visualize the traffic density
     visualize_traffic_density(traffic_grid, title="Traffic Density")
 
-    # Step 8: Load and process real traffic data (optional)
+    # Step 8: Load and process real traffic data (optional).
     real_data_file = input("Enter the path to the real traffic data CSV file (or press Enter to skip): ")
     if real_data_file:
         real_traffic_grid = load_real_traffic_data(real_data_file)
