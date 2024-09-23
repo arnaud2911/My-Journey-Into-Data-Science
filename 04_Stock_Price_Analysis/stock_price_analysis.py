@@ -20,4 +20,4 @@ df["stock_price"] = df["stock_price"].astype(float)
 df["stock_price"] = df["stock_price"].interpolate(method="linear") # Interpolate missing values
 
 # Verify the changes
-print(df.head(10))
+print(df.head())
