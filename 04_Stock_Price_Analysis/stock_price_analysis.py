@@ -31,5 +31,29 @@ daily_return_std = df["daily_return"].std()
 threshold = daily_return_mean + daily_return_std
 high_return_days = df[df["daily_return"] > threshold]["date"].dt.strftime("%Y-%m-%d").tolist()
 
+# Data Visualization
+# Let's set the style for Seaborn
+sns.set_theme(style="darkgrid")
+# Let's plot the the stock prices over time
+plt.figure(figsize = (12, 6))
+sns.lineplot(data = df, x = "date", y = "stock_price", marker="o")
+plt.title("Stock Prices Over Time")
+plt.xlabel("Date")
+plt.ylabel("Stock Price")
+plt.xticks(rotation=45)
+plt.tight_layout()
+#plt.show()
+plt.savefig("visualizations/stock_prices_over_time.png")
+
+# Let's plot the histogram of daily returns
+plt.figure(figsize = (12, 6))
+sns.histplot(df["daily_return"].dropna(), bins = 50, kde = True)
+plt.title("Histogram of Daily Returns")
+plt.xlabel("Daily Return (%)")
+plt.ylabel("Frequency")
+plt.tight_layout()
+#plt.show()
+plt.savefig("visualizations/histogram_of_daily_returns.png")
+
 # Verify the changes
 print(df.head())
