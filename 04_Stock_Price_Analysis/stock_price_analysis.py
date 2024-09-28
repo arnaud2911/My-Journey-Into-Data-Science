@@ -6,7 +6,6 @@ import seaborn as sns
 
 # Reading the data from CSV file
 df = pd.read_csv("data/stock_data.csv")
-
 # Converting the "date" column to datetime
 df["date"] = pd.to_datetime(df["date"])
 
@@ -44,7 +43,6 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 #plt.show()
 plt.savefig("visualizations/stock_prices_over_time.png")
-
 # Let's plot the histogram of daily returns
 plt.figure(figsize = (12, 6))
 sns.histplot(df["daily_return"].dropna(), bins = 50, kde = True)
@@ -55,5 +53,22 @@ plt.tight_layout()
 #plt.show()
 plt.savefig("visualizations/histogram_of_daily_returns.png")
 
-# Verify the changes
-print(df.head())
+# Random Simulation
+# Let's simulate the stock price for the next 30 days
+np.random.seed(42) # Set seed for reproducibility
+starting_price = df["stock_price"].iloc[-1]
+simulated_returns = np.random.normal(loc = daily_return_mean, scale = daily_return_std, size = 30)
+simulated_prices  = [starting_price]
+for r in simulated_returns:
+    next_price = simulated_prices[-1] * (1 + r / 100)
+    simulated_prices.append(next_price)
+simulated_prices = simulated_prices[1: ] # Remove the starting price
+#Plot Simulated Stock Price Path
+plt.figure(figsize = (12, 6))
+sns.lineplot(x = range(1, 31), y = simulated_prices, color = "green", marker="o")
+plt.title("Simulated Stock Price Path for the Next 30 Days")
+plt.xlabel("Day")
+plt.ylabel("Stock Price")
+plt.tight_layout()
+#plt.show()
+plt.savefig("visualizations/simulated_stock_price.png")
