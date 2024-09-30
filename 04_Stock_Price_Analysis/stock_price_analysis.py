@@ -72,3 +72,17 @@ plt.ylabel("Stock Price")
 plt.tight_layout()
 #plt.show()
 plt.savefig("visualizations/simulated_stock_price.png")
+
+#Insights And Interpretation
+# Print statistical analysis results
+print("Statistical Analysis of Daily Returns:")
+print(f"mean of daily returns: {daily_return_mean:.2f}%")
+print(f"median of daily returns: {daily_return_median:.2f}%")
+print(f"standard deviation of daily returns: {daily_return_std:.2f}%")
+
+print("Days when the daily return was above one standard deviation from the mean:")
+for day in high_return_days:
+    print(day)
+print("\nInterpretation of Simulation:")
+print("Based on historical daily returns, the randomly simulated stock price path over next the 30 days shows an initial rise in the first 10 days, before starting to experience a non-stop decline.")
+print("This provides an estimate but does not guarantee actual future performance due to market volatility and unforeseen factors.")
