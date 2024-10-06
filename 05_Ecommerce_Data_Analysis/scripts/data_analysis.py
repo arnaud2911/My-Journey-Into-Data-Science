@@ -45,4 +45,4 @@ def handle_missing_values(df):
     # Impute missing "quantity" values with the median
     median_quantity = df["quantity"].median()
     df["quantity"].fillna(median_quantity, inplace = True)
-    return df
+    return df 
