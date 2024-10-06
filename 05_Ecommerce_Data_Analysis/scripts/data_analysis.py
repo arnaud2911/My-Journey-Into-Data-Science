@@ -36,3 +36,13 @@ def data_validation(df):
     print("\nChecking for duplicate transactions:")
     duplicates = df.duplicated(subset = ["transaction_id"]).sum()
     print(f"Tne number of duplicate transactions is: {duplicates}")
+
+#Function 4: Handling Missing Values
+def handle_missing_values(df):
+    """
+    Handle missing values in the dataset.
+    """
+    # Impute missing "quantity" values with the median
+    median_quantity = df["quantity"].median()
+    df["quantity"].fillna(median_quantity, inplace = True)
+    return df
