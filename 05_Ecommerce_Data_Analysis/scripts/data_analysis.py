@@ -46,3 +46,20 @@ def handle_missing_values(df):
     median_quantity = df["quantity"].median()
     df["quantity"].fillna(median_quantity, inplace = True)
     return df 
+
+# Function 5: Identifying and handilng outliers
+def handle_outliers(df):
+    """
+    Identify and handle outliers in price.
+    """
+    # Using IQR method
+    Q1 = df["price"].quantile(0.25)
+    Q3 = df["price"].quantile(0.75)
+    IQR = Q3 - Q1
+    lower_bound = Q1 - 1.5 * IQR
+    upper_bound = Q3 + 1.5 * IQR
+
+    # Cap price at upper and loweer bounds
+    df["price"] = np.where(df["price"] > upper_bound, upper_bound, df["price"])
+    df["price"] = np.where(df["price"] < lower_bound, lower_bound, df["price"])
+    return df
