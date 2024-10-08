@@ -35,7 +35,7 @@ def data_validation(df):
     print(df.isnull().sum())
     print("\nChecking for duplicate transactions:")
     duplicates = df.duplicated(subset = ["transaction_id"]).sum()
-    print(f"Tne number of duplicate transactions is: {duplicates}")
+    print(f"The number of duplicate transactions is: {duplicates}")
 
 #Function 4: Handling Missing Values
 def handle_missing_values(df):
@@ -44,7 +44,7 @@ def handle_missing_values(df):
     """
     # Impute missing "quantity" values with the median
     median_quantity = df["quantity"].median()
-    df["quantity"].fillna(median_quantity, inplace = True)
+    df["quantity"] = df["quantity"].fillna(median_quantity)
     return df 
 
 # Function 5: Identifying and handilng outliers
@@ -63,3 +63,114 @@ def handle_outliers(df):
     df["price"] = np.where(df["price"] > upper_bound, upper_bound, df["price"])
     df["price"] = np.where(df["price"] < lower_bound, lower_bound, df["price"])
     return df
+
+# Function 6: Data Visualization
+def visualize_data(df):
+    """
+    Create visualizations for data analysis.
+    """
+    sns.set(style = "whitegrid")
+
+    # Total transactions per category
+    plt.figure(figsize = (10, 6))
+    category_counts = df["category"].value_counts()
+    sns.barplot(x=category_counts.index, y=category_counts.values, hue=category_counts.index, palette="viridis", legend=False)
+    plt.title("Total Transactions per Category")
+    plt.xlabel("Category")
+    plt.ylabel("Total Transactions")
+    plt.xticks(rotation = 45)
+    plt.tight_layout()
+    plt.savefig("../visualizations/transactions_per_category.png")
+    plt.close()
+
+    # Sales over time
+    plt.figure(figsize = (12, 6))
+    df.set_index("transaction_date").resample("ME")["price"].sum().plot()
+    plt.title("Sales Over Time")
+    plt.xlabel("Date")
+    plt.ylabel("Total Sales")
+    plt.tight_layout()
+    plt.savefig("../visualizations/sales_over_time.png")
+    plt.close()
+
+    # Age distribution of customers
+    plt.figure(figsize = (10, 6))
+    sns.histplot(df["age"], bins = 50, kde = True, color = "skyblue")
+    plt.title("Age Distribution of Customers")
+    plt.xlabel("Age")
+    plt.ylabel("Frequency")
+    plt.tight_layout()
+    plt.savefig("../visualizations/age_distribution.png")
+    plt.close()
+
+# Function 7: Aggregated Analysis
+def aggregated_analysis(df):
+    """
+    Perform aggregated analysis on the dataset.
+    """
+    # Top 10 products by sales
+    top_products = df.groupby("product_id")["price"].sum().sort_values(ascending = False).head(10)
+    print(r"n\Top 10 Products by Quantity Sold")
+    print(top_products)
+
+    # Sales by gender
+    sales_by_gender = df.groupby("gender")["price"].sum()
+    print("\nTotal Sales by Gender")
+    print(sales_by_gender)
+
+    # Pivot table of sales by category and gender
+    pivot_table = df.pivot_table(
+        values = "price",
+        index = "category",
+        columns = "gender",
+        aggfunc = "sum"
+    )
+    print("\nPivot Table of Sales by Category and Gender")
+    print(pivot_table)
+
+# Function 8: Save the cleaned dataset
+def save_clean_data(df):
+    """
+    Save the cleaned dataset to a new CSV file.
+    """
+    df.to_csv("../data/cleaned_ecommerce_data.csv", index = False)
+    print("\nCleaned data saved to 'data/cleaned_ecommerce_data.csv'.")
+
+# Main Function to Excecute the Data Analysis
+def main():
+    # Step 1: Load the dataset
+    print("Loading dataset...")
+    filepath = "../data/ecommerce_data.csv"
+    df = load_data(filepath)
+
+    # Step 2: Perform initial data exploration
+    print("\nPerforming initial data exploration...")
+    initial_data_exploration(df)
+
+    # Step 3: Data validation and summarization
+    print("\nPerforming data validation...")
+    data_validation(df)
+
+    # Step 4: Handle missing values
+    print("\nHandling missing values...")
+    df = handle_missing_values(df)
+
+    # Step 5: Handle outliers
+    print("\nHandling outliers...")
+    df = handle_outliers(df)
+
+    # Step 6: Data visualization
+    print("\nCreating visualizations...")
+    visualize_data(df)
+
+    # Step 7: Aggregated analysis
+    print("\nPerforming aggregated analysis...")
+    aggregated_analysis(df)
+
+    # Step 8: Save the cleaned dataset
+    save_clean_data(df)
+
+    print("\nData analysis complete.")
+
+if __name__ == "__main__":
+        main()
