@@ -20,6 +20,10 @@ Welcome to my collection of projects documenting my journey to becoming a Data S
    - **Description**: This capstone project analyzes and cleans a large stock price dataset of a fictional company over a **20-year period**. It handles missing values and anomalies, calculates daily returns, performs statistical analysis, and simulates future stock prices using a random walk model. The project demonstrates data cleaning, manipulation, visualization, and statistical concepts in a real-life data science scenario.
    - **Key Concepts**: Large dataset handling, data cleaning, data manipulation, pandas, numpy, data visualization, matplotlib, seaborn, statistical analysis, random simulation, code modularization.
 
+5. [E-commerce Data Analysis](./05_Ecommerce_Data_Analysis)
+   - **Description**: This capstone project involves analyzing a large synthetic e-commerce transactions dataset to extract meaningful insights and actionable information. It includes data cleaning, manipulation, aggregation, and visualization techniques to simulate a real-world big data scenario. The project demonstrates how to handle missing values, perform statistical analysis, and visualize trends in customer behavior and sales performance.
+   - **Key Concepts**: Large dataset generation, data cleaning, data validation, pandas, numpy, seaborn, data visualization, summary statistics, code modularization, pivot tables, and group-by operations.
+
 <!-- Add future projects here -->
 
 ## About Me
